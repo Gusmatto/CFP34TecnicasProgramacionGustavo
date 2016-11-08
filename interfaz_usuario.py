@@ -7,6 +7,7 @@ def mostrarMenu():
     print("Para salir del juego, ingrese 'S'")
 
     modoDeJuego = input("Elija el modo: ")
+    modoDeJuego = modoDeJuego.upper()
     modoDeJuegoValido = validarModoDeJuego(modoDeJuego)
     if modoDeJuegoValido:
         print("Bienvenido")
@@ -24,6 +25,5 @@ def validarModoDeJuego(modo):
         return True
     elif modo == "P":
         return True
-
     else:
         return False
