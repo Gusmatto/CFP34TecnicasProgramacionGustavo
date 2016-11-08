@@ -8,11 +8,15 @@ def mostrarMenu():
 
     modoDeJuego = input("Elija el modo: ")
     modoDeJuego = modoDeJuego.upper()
-    modoDeJuegoValido = validarModoDeJuego(modoDeJuego)
-    if modoDeJuegoValido:
-        print("Bienvenido")
-    elif modoDeJuego == "S":
-        print("¡Ha salido del juego!")
+
+    if validarModoDeJuego(modoDeJuego):
+        if modoDeJuego == "P":
+            print("Eligio P")
+        elif modoDeJuego == "A":
+            print("Eligio A")
+        elif modoDeJuego == "S":
+            print("¡Ha salido del juego!")
+            exit()
     else:
         print("")
         print("ERROR ! La opcion: " + modoDeJuego + " es invalida")
@@ -20,10 +24,16 @@ def mostrarMenu():
 
 
 
+
+
+
+
 def validarModoDeJuego(modo):
     if modo == "A":
         return True
     elif modo == "P":
+        return True
+    elif modo == "S":
         return True
     else:
         return False
