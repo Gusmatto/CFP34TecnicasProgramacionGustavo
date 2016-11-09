@@ -34,3 +34,17 @@ def validarModoDeJuego(modo):
         return True
     else:
         return False
+
+def mostrar_tablero(tablero):
+
+    for fila in tablero:
+
+        elementosDeLaFila = ""
+
+        for elemento in fila:
+            elementosDeLaFila = elementosDeLaFila + " " + elemento
+
+        print(elementosDeLaFila)
+
+
+
