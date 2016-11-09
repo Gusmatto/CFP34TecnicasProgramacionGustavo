@@ -1,4 +1,6 @@
 
+import interfaz_usuario
+
 nivelesPredeterminados = []
 
 def jugar():
@@ -20,6 +22,12 @@ def cargarNivelesPredeterminados():
     nivelesPredeterminados.append(nivelesPredeterminados3)
     nivelesPredeterminados.append(nivelesPredeterminados4)
     nivelesPredeterminados.append(nivelesPredeterminados5)
+
+def mostrar_tablero_para(nroNivel):
+    print(nroNivel)
+    #TODO realizar la funcion
+
+
 
 
 
