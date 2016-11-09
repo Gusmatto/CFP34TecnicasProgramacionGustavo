@@ -1,3 +1,5 @@
+import juegoPredeterminado
+
 def mostrarMenu():
     print("")
     print("¡Bienvenido a Lights Out!")
@@ -11,7 +13,7 @@ def mostrarMenu():
 
     if validarModoDeJuego(modoDeJuego):
         if modoDeJuego == "P":
-            print("Eligio P")
+            juegoPredeterminado.jugar()
         elif modoDeJuego == "A":
             print("Eligio A")
         elif modoDeJuego == "S":
@@ -21,11 +23,6 @@ def mostrarMenu():
         print("")
         print("ERROR ! La opcion: " + modoDeJuego + " es invalida")
         mostrarMenu()
-
-
-
-
-
 
 
 def validarModoDeJuego(modo):
