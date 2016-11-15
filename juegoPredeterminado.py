@@ -1,5 +1,6 @@
 
 import interfaz_usuario
+import copy
 
 nivelesPredeterminados = []
 
@@ -23,10 +24,29 @@ def cargarNivelesPredeterminados():
     nivelesPredeterminados.append(nivelesPredeterminados4)
     nivelesPredeterminados.append(nivelesPredeterminados5)
 
-def mostrar_tablero_para(nroNivel):
-    print(nroNivel)
-    #TODO realizar la funcion
+"""
+PRE:    Se espera que los niveles predeterminados ya hayan sido cargados
+        Se espera que nroNivel sea un entero
+        Se validara que nroNivel pasado sea 1,2,3,4 o 5
 
+POST:   Se devuelve una copia de la matriz del nivel pasado por parametro.
+        Sino se cumple la precondicion, se devuelve una lista vacia
+"""
+def mostrar_tablero_para(nroNivel):
+
+    if len(nivelesPredeterminados) == 0:
+        return []
+
+    if type(nroNivel) != int:
+        return []
+
+    niveles_permitidos = (1,2,3,4,5)
+
+    if nroNivel not in niveles_permitidos:
+        return []
+
+    copiaDelNivel = copy.deepcopy(nivelesPredeterminados[nroNivel-1])
+    return copiaDelNivel
 
 
 
