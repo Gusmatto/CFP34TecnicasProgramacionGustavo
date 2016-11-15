@@ -37,14 +37,20 @@ def validarModoDeJuego(modo):
 
 def mostrar_tablero(tablero):
 
+    print("")
+    print("    A B C D E")
+
+    nroFila = 1
+
     for fila in tablero:
 
-        elementosDeLaFila = ""
+        elementosDeLaFila = str(nroFila) + " |"
 
         for elemento in fila:
             elementosDeLaFila = elementosDeLaFila + " " + elemento
 
         print(elementosDeLaFila)
+        nroFila += 1
 
 
 

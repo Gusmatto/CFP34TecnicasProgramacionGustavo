@@ -7,9 +7,11 @@ nivelesPredeterminados = []
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
-    #todo preguntar o conseguir o saber en qué nivel vamos a jugar ?
+    #TODO preguntar o conseguir o saber en qué nivel vamos a jugar ?
     tablero = get_tablero_para(1)
     interfaz_usuario.mostrar_tablero(tablero)
+    #TODO Se le debe pedir al usuario que ingrese la coordenada que quiere elegir
+
 
 
 def cargarNivelesPredeterminados():
