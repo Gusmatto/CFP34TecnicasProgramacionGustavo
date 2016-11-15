@@ -6,13 +6,15 @@ nivelesPredeterminados = []
 
 def jugar():
     print("Usted ha elegido predeterminado")
-    #inicializar los niveles predeterminados!
     cargarNivelesPredeterminados()
-    print(nivelesPredeterminados)
+    #todo preguntar o conseguir o saber en qué nivel vamos a jugar ?
+    tablero = get_tablero_para(1)
+    interfaz_usuario.mostrar_tablero(tablero)
+
 
 def cargarNivelesPredeterminados():
 
-    nivelesPredeterminados1 = [["o", "o", ".", "o", "o"], [".", "o", ".", "o", "."], ["o", ".", ".", ".", "o"], ["o", "o", ".", "o", "o"], [".", ".", ".", "o", "o"]]
+    nivelesPredeterminados1 = [["o", "o", ".", "o", "o"], ["o", ".", "o", ".", "o"], [".", "o", "o", "o", "."], ["o", ".", "o", ".", "o"], ["o", "o", ".", "o", "o"]]
     nivelesPredeterminados2 = [[".", "o", ".", "o", "."], ["o", "o", ".", "o", "o"], [".", "o", ".", "o", "."], ["o", ".", "o", ".", "o"], ["o", ".", "o", ".", "o"]]
     nivelesPredeterminados3 = [["o", ".", ".", ".", "o"], ["o", "o", ".", "o", "o"], [".", ".", "o", ".", "."], ["o", ".", "o", ".", "."], ["o", ".", "o", "o", "."]]
     nivelesPredeterminados4 = [["o", "o", ".", "o", "o"], [".", ".", ".", ".", "."], ["o", "o", ".", "o", "o"], [".", ".", ".", ".", "o"], ["o", "o", ".", ".", "."]]
@@ -32,7 +34,7 @@ PRE:    Se espera que los niveles predeterminados ya hayan sido cargados
 POST:   Se devuelve una copia de la matriz del nivel pasado por parametro.
         Sino se cumple la precondicion, se devuelve una lista vacia
 """
-def mostrar_tablero_para(nroNivel):
+def get_tablero_para(nroNivel):
 
     if len(nivelesPredeterminados) == 0:
         return []
