@@ -10,10 +10,25 @@ def jugar():
     #TODO preguntar o conseguir o saber en qué nivel vamos a jugar ?
     tablero = get_tablero_para(1)
     interfaz_usuario.mostrar_tablero(tablero)
-    #TODO Se le debe pedir al usuario que ingrese la coordenada que quiere elegir
+    print("")
+    coordeana = input("Elija una coordenada(letra, número): ")
+    coordenada = coordenada.upper()
+    print(coordeana)
+    #TODO validar que la coordenada ingresada por el usuario sea valida y en caso negativo volver a pedirsela
+
+def validar_coordenada(rango):
+    if rango == "A1", "B1", "C1", "D1", "E1", "A2", "B2", "C2", "D2", "E2", "A3", "B3", "C3", "D3", "E3", "A4", "B4", "C4", "D4", "E4", "A5", "B5", "C5", "D5", "E5":
+        return True
+    else:
+        return False
+        print("Las coordenadas ingresadas no son validas. Ingrese coordenadas validas: ")
 
 
+"""
+def coordenadas(letra, numero):
 
+    coordenadas = [[A1: 00, B1: 01, C1: 02, D1: 03, E1: 04], [A2: 10]]
+   """
 def cargarNivelesPredeterminados():
 
     nivelesPredeterminados1 = [["o", "o", ".", "o", "o"], ["o", ".", "o", ".", "o"], [".", "o", "o", "o", "."], ["o", ".", "o", ".", "o"], ["o", "o", ".", "o", "o"]]
