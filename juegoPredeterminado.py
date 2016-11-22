@@ -14,7 +14,7 @@ def jugar():
     propuesta = input("Elija una coordenada(letra, número): ")
     propuesta = propuesta.upper()
 
-    #TODO validar que la coordenada ingresada por el usuario sea valida y en caso negativo volver a pedirsela
+    #TODO validar que la coordenada ingresada por el usuario sea valida y en caso negativo volver a pedirsela,
 
 def validar_coordenada(rango):
     while propuesta in coordenadas:
