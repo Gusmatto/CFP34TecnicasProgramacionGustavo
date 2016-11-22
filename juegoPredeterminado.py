@@ -11,24 +11,24 @@ def jugar():
     tablero = get_tablero_para(1)
     interfaz_usuario.mostrar_tablero(tablero)
     print("")
-    coordeana = input("Elija una coordenada(letra, número): ")
-    coordenada = coordenada.upper()
-    print(coordeana)
+    propuesta = input("Elija una coordenada(letra, número): ")
+    propuesta = propuesta.upper()
+
     #TODO validar que la coordenada ingresada por el usuario sea valida y en caso negativo volver a pedirsela
 
 def validar_coordenada(rango):
-    if rango == "A1", "B1", "C1", "D1", "E1", "A2", "B2", "C2", "D2", "E2", "A3", "B3", "C3", "D3", "E3", "A4", "B4", "C4", "D4", "E4", "A5", "B5", "C5", "D5", "E5":
+    while propuesta in coordenadas:
         return True
     else:
-        return False
-        print("Las coordenadas ingresadas no son validas. Ingrese coordenadas validas: ")
+        print(input("Las coordenadas ingresadas no son validas. Ingrese coordenadas validas: "))
 
 
-"""
 def coordenadas(letra, numero):
 
-    coordenadas = [[A1: 00, B1: 01, C1: 02, D1: 03, E1: 04], [A2: 10]]
-   """
+    coordenadas = [["A1": nivelesPredeterminados1 [0:0], "B1": nivelesPredeterminados1 [0:1], "C1": nivelesPredeterminados1 [0:2], "D1": 03, "E1": 04], ["A2": 10, "B2": 11, "C2": 12, "D2": 13, "E2": 14],
+    ["A3": 20, "B3": 21, "C3": 22, "D3": 23, "E3": 24], ["A4": 30, "B4": 31, "C4": 32, "D4": 33, "E4": 34],
+    ["A5": 40, "B5": 41, "C5": 42, "D5": 43, "E5": 44]],
+
 def cargarNivelesPredeterminados():
 
     nivelesPredeterminados1 = [["o", "o", ".", "o", "o"], ["o", ".", "o", ".", "o"], [".", "o", "o", "o", "."], ["o", ".", "o", ".", "o"], ["o", "o", ".", "o", "o"]]
