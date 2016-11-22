@@ -16,7 +16,13 @@ def jugar():
     while not resultado['coordenadaValida']:
         resultado = validar_coordenada()
 
-    print("Seguimos jugando....")
+    fila = resultado["valor"][0]
+    columna = resultado["valor"][1]
+
+
+
+
+    print(tablero[fila][columna])
 
 def validar_coordenada():
 
