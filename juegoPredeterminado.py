@@ -11,23 +11,27 @@ def jugar():
     tablero = get_tablero_para(1)
     interfaz_usuario.mostrar_tablero(tablero)
     print("")
+
+    resultado = validar_coordenada()
+    while not resultado['coordenadaValida']:
+        resultado = validar_coordenada()
+
+    print("Seguimos jugando....")
+
+def validar_coordenada():
+
     propuesta = input("Elija una coordenada(letra, número): ")
     propuesta = propuesta.upper()
+    coordenadas = obtenerCoordenadas()
+    if propuesta in coordenadas:
+        return {"coordenadaValida": True, "valor": coordenadas[propuesta]}
 
-    #TODO validar que la coordenada ingresada por el usuario sea valida y en caso negativo volver a pedirsela,
+    return {"coordenadaValida": False, "valor": ""}
 
-def validar_coordenada(rango):
-    while propuesta in coordenadas:
-        return True
-    else:
-        print(input("Las coordenadas ingresadas no son validas. Ingrese coordenadas validas: "))
-
-
-def coordenadas(letra, numero):
-
-    coordenadas = [["A1": nivelesPredeterminados1 [0:0], "B1": nivelesPredeterminados1 [0:1], "C1": nivelesPredeterminados1 [0:2], "D1": 03, "E1": 04], ["A2": 10, "B2": 11, "C2": 12, "D2": 13, "E2": 14],
-    ["A3": 20, "B3": 21, "C3": 22, "D3": 23, "E3": 24], ["A4": 30, "B4": 31, "C4": 32, "D4": 33, "E4": 34],
-    ["A5": 40, "B5": 41, "C5": 42, "D5": 43, "E5": 44]],
+def obtenerCoordenadas():
+    return {"A1": (0,0), "B1": (0,1), "C1": (0,2), "D1": (0,3), "E1": (0,4), "A2": (1,0), "B2": (1,1), "C2": (1,2),
+            "D2": (1,3), "E2": (1,4), "A3": (2,0), "B3": (2,1), "C3": (2,2), "D3": (2,3), "E3": (2,4), "A4": (3,0),
+            "B4": (3,1), "C4": (3,2), "D4": (3,3), "E4": (3,4), "A5": (4,0), "B5": (4,1), "C5": (4,2), "D5": (4,3), "E5": (4,4)}
 
 def cargarNivelesPredeterminados():
 
