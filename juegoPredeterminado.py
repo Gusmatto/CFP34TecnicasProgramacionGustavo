@@ -19,10 +19,15 @@ def jugar():
     fila = resultado["valor"][0]
     columna = resultado["valor"][1]
 
-
-
-
     print(tablero[fila][columna])
+
+    posicion_jugada(fila,columna)
+
+def posicion_jugada(fila,columna):
+    fila = (1, 2, 3, 4, 5)
+    columna = (A, B, C, D, E)
+
+"""TODO Sumar, restar a fila y a columna cuando corresponda"""
 
 def validar_coordenada():
 
@@ -37,7 +42,8 @@ def validar_coordenada():
 def obtenerCoordenadas():
     return {"A1": (0,0), "B1": (0,1), "C1": (0,2), "D1": (0,3), "E1": (0,4), "A2": (1,0), "B2": (1,1), "C2": (1,2),
             "D2": (1,3), "E2": (1,4), "A3": (2,0), "B3": (2,1), "C3": (2,2), "D3": (2,3), "E3": (2,4), "A4": (3,0),
-            "B4": (3,1), "C4": (3,2), "D4": (3,3), "E4": (3,4), "A5": (4,0), "B5": (4,1), "C5": (4,2), "D5": (4,3), "E5": (4,4)}
+            "B4": (3,1), "C4": (3,2), "D4": (3,3), "E4": (3,4), "A5": (4,0), "B5": (4,1), "C5": (4,2), "D5": (4,3),
+            "E5": (4,4)}
 
 def cargarNivelesPredeterminados():
 
