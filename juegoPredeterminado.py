@@ -9,6 +9,10 @@ def jugar():
     cargarNivelesPredeterminados()
 
     tablero = get_tablero_para(1)
+
+
+    #TODO encerrar todo esto en un while e ir descontado los turnos
+
     interfaz_usuario.mostrar_tablero(tablero)
     print("")
 
@@ -23,8 +27,14 @@ def jugar():
 
     cambiar_luces(tablero,fila,columna)
 
-def posicion_jugada(fila,columna,tablero):
+    #TODO FIN DEL CICLO WHILE
 
+
+
+
+
+
+def posicion_jugada(fila,columna,tablero):
     filasPermitidas = [0, 1, 2, 3, 4]
     columnasPermitidas = ["A", "B", "C", "D", "E"]
 
@@ -38,36 +48,34 @@ def cambiar_luces(tablero, fila, columna):
     else:
         tablero[fila][columna] = "."
 
-    if fila in (1,2,3,4):
+    if fila in (1, 2, 3, 4):
         if tablero[fila-1][columna] == ".":
             tablero[fila-1][columna] = "o"
         else:
             tablero[fila-1][columna] = "."
 
-    if fila in (0,1,2,3):
+    if fila in (0, 1, 2, 3):
         if tablero[fila+1][columna] == ".":
             tablero[fila+1][columna] = "o"
         else:
             tablero[fila+1][columna] = "."
 
-    if columna in (1,2,3,4):
+    if columna in (1, 2, 3, 4):
         if tablero[fila][columna-1] == ".":
             tablero[fila][columna-1] = "o"
         else:
             tablero[fila][columna-1] = "."
 
-    if columna in (0,1,2,3):
+    if columna in (0, 1, 2, 3):
         if tablero[fila][columna+1] == ".":
             tablero[fila][columna+1] = "o"
         else:
             tablero[fila][columna+1] = "."
 
-
     interfaz_usuario.mostrar_tablero(tablero)
 
 
 def validar_coordenada():
-
     propuesta = input("Elija una coordenada(letra, número): ")
     propuesta = propuesta.upper()
     coordenadas = obtenerCoordenadas()
@@ -83,7 +91,6 @@ def obtenerCoordenadas():
             "E5": (4, 4)}
 
 def cargarNivelesPredeterminados():
-
     nivelesPredeterminados1 = [["o", "o", ".", "o", "o"], ["o", ".", "o", ".", "o"], [".", "o", "o", "o", "."], ["o", ".", "o", ".", "o"], ["o", "o", ".", "o", "o"]]
     nivelesPredeterminados2 = [[".", "o", ".", "o", "."], ["o", "o", ".", "o", "o"], [".", "o", ".", "o", "."], ["o", ".", "o", ".", "o"], ["o", ".", "o", ".", "o"]]
     nivelesPredeterminados3 = [["o", ".", ".", ".", "o"], ["o", "o", ".", "o", "o"], [".", ".", "o", ".", "."], ["o", ".", "o", ".", "."], ["o", ".", "o", "o", "."]]
@@ -105,7 +112,6 @@ POST:   Se devuelve una copia de la matriz del nivel pasado por parametro.
         Sino se cumple la precondicion, se devuelve una lista vacia
 """
 def get_tablero_para(nroNivel):
-
     if len(nivelesPredeterminados) == 0:
         return []
 
