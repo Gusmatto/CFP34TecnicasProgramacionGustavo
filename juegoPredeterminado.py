@@ -21,11 +21,54 @@ def jugar():
 
     print(tablero[fila][columna])
 
-    posicion_jugada(fila,columna)
+    cambiar_luces(tablero,fila,columna)
 
-def posicion_jugada(fila,columna):
-    fila = (1, 2, 3, 4, 5)
-    columna = (A, B, C, D, E)
+def posicion_jugada(fila,columna,tablero):
+
+    filasPermitidas = [0, 1, 2, 3, 4]
+    columnasPermitidas = ["A", "B", "C", "D", "E"]
+
+
+
+
+    cambiar_luces(tablero,fila,columna)
+
+
+
+def cambiar_luces(tablero, fila, columna):
+    if tablero[fila][columna] == ".":
+        tablero[fila][columna] = "o"
+    else:
+        tablero[fila][columna] = "."
+
+    if fila > 1:
+        if tablero[fila-1][columna] == ".":
+            tablero[fila-1][columna] = "o"
+        else:
+            tablero[fila-1][columna] = "."
+
+    if fila < 5:
+        if tablero[fila+1][columna] == ".":
+            tablero[fila+1][columna] = "o"
+        else:
+            tablero[fila+1][columna] = "."
+
+    if columna in (1,2,3,4):
+        if tablero[fila][columna-1] == ".":
+            tablero[fila][columna-1] = "o"
+        else:
+            tablero[fila][columna-1] = "."
+
+    if columna in (0,1,2,3):
+        if tablero[fila][columna+1] == ".":
+            tablero[fila][columna+1] = "o"
+        else:
+            tablero[fila][columna+1] = "."
+
+
+    interfaz_usuario.mostrar_tablero(tablero)
+
+
 
 """TODO Sumar, restar a fila y a columna cuando corresponda"""
 
