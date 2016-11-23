@@ -41,13 +41,13 @@ def cambiar_luces(tablero, fila, columna):
     else:
         tablero[fila][columna] = "."
 
-    if fila > 1:
+    if fila in (1,2,3,4):
         if tablero[fila-1][columna] == ".":
             tablero[fila-1][columna] = "o"
         else:
             tablero[fila-1][columna] = "."
 
-    if fila < 5:
+    if fila in (0,1,2,3):
         if tablero[fila+1][columna] == ".":
             tablero[fila+1][columna] = "o"
         else:
