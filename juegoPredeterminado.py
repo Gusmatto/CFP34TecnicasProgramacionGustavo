@@ -8,10 +8,17 @@ def nivelGanado(tablero):
 
     for fila in tablero:
         for elemento in fila:
-            if not (elemento == "."):
+            if elemento != ".":
                 return False
-
     return True
+
+"""def intentos():
+        intentos = 15
+    while intentos
+        intentos -= 1
+
+    print("Le quedan {} intentos".format(intentos))"""
+
 
 
 def jugar():
@@ -35,7 +42,14 @@ def jugar():
 
         cambiar_luces(tablero, fila, columna)
 
-    print("GANE O PERDI TODAVIA NO SE !!!")
+    interfaz_usuario.mostrar_tablero(tablero)
+    juegoGanado = nivelGanado(tablero)
+
+    if juegoGanado:
+        print("GANEEE")
+    else:
+        print("perdiii")
+
 
 
 def posicion_jugada(fila,columna,tablero):
@@ -43,7 +57,7 @@ def posicion_jugada(fila,columna,tablero):
     columnasPermitidas = ["A", "B", "C", "D", "E"]
 
 
-    cambiar_luces(tablero,fila,columna)
+    cambiar_luces(tablero, fila, columna)
 
 
 def cambiar_luces(tablero, fila, columna):
@@ -75,9 +89,6 @@ def cambiar_luces(tablero, fila, columna):
             tablero[fila][columna+1] = "o"
         else:
             tablero[fila][columna+1] = "."
-
-    interfaz_usuario.mostrar_tablero(tablero)
-
 
 def validar_coordenada():
     propuesta = input("Elija una coordenada(letra, número): ")
