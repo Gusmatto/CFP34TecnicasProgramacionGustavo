@@ -4,34 +4,38 @@ import copy
 
 nivelesPredeterminados = []
 
+def nivelGanado(tablero):
+
+    for fila in tablero:
+        for elemento in fila:
+            if not (elemento == "."):
+                return False
+
+    return True
+
+
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
 
     tablero = get_tablero_para(1)
 
+    while not nivelGanado(tablero):
+        interfaz_usuario.mostrar_tablero(tablero)
+        print("")
 
-    #TODO encerrar todo esto en un while e ir descontado los turnos
-
-    interfaz_usuario.mostrar_tablero(tablero)
-    print("")
-
-    resultado = validar_coordenada()
-    while not resultado['coordenadaValida']:
         resultado = validar_coordenada()
+        while not resultado['coordenadaValida']:
+            resultado = validar_coordenada()
 
-    fila = resultado["valor"][0]
-    columna = resultado["valor"][1]
+        fila = resultado["valor"][0]
+        columna = resultado["valor"][1]
 
-    print(tablero[fila][columna])
+        print(tablero[fila][columna])
 
-    cambiar_luces(tablero,fila,columna)
+        cambiar_luces(tablero, fila, columna)
 
-    #TODO FIN DEL CICLO WHILE
-
-
-
-
+    print("GANE O PERDI TODAVIA NO SE !!!")
 
 
 def posicion_jugada(fila,columna,tablero):
