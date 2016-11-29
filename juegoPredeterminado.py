@@ -17,7 +17,6 @@ def hayTurnosDisponibles(intentos):
 
     if intentos > 0:
         return True
-
     return False
 
 def jugar():
@@ -30,7 +29,7 @@ def jugar():
     while not nivelGanado(tablero) and hayTurnosDisponibles(intentos):
 
         print("")
-        print("Turnos disponibles: ",intentos)
+        print("Turnos disponibles: ", intentos)
         interfaz_usuario.mostrar_tablero(tablero)
         print("")
 
@@ -53,6 +52,9 @@ def jugar():
     else:
         print("")
         print("PERDIII")
+
+    #TODO Poder reiniciar el juego en cualquier momento y volver al primer menú
+    #TODO Si no hay más niveles o el jugador perdió, volver a mostrar el menú#
 
 
 def posicion_jugada(fila, columna, tablero):
