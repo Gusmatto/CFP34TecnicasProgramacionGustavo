@@ -12,22 +12,25 @@ def nivelGanado(tablero):
                 return False
     return True
 
-"""def intentos():
-        intentos = 15
-    while intentos
-        intentos -= 1
 
-    print("Le quedan {} intentos".format(intentos))"""
+def hayTurnosDisponibles(intentos):
 
+    if intentos > 0:
+        return True
 
+    return False
 
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
 
     tablero = get_tablero_para(1)
+    intentos = 15
 
-    while not nivelGanado(tablero):
+    while not nivelGanado(tablero) and hayTurnosDisponibles(intentos):
+
+        print("")
+        print("Turnos disponibles: ",intentos)
         interfaz_usuario.mostrar_tablero(tablero)
         print("")
 
@@ -39,7 +42,7 @@ def jugar():
         columna = resultado["valor"][1]
 
         print(tablero[fila][columna])
-
+        intentos -= 1
         cambiar_luces(tablero, fila, columna)
 
     interfaz_usuario.mostrar_tablero(tablero)
@@ -48,11 +51,11 @@ def jugar():
     if juegoGanado:
         print("GANEEE")
     else:
-        print("perdiii")
+        print("")
+        print("PERDIII")
 
 
-
-def posicion_jugada(fila,columna,tablero):
+def posicion_jugada(fila, columna, tablero):
     filasPermitidas = [0, 1, 2, 3, 4]
     columnasPermitidas = ["A", "B", "C", "D", "E"]
 
