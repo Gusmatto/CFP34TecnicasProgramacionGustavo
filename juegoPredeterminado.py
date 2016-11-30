@@ -61,7 +61,7 @@ def jugar():
     else:
         print("")
         print("PERDISTEEE")
-        print("")
+        print(""),
 
     interfaz_usuario.mostrarMenu()
 
