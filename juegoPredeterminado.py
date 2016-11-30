@@ -37,12 +37,16 @@ def jugar():
         while not resultado['coordenadaValida']:
             resultado = validar_coordenada()
 
-        fila = resultado["valor"][0]
-        columna = resultado["valor"][1]
+        if resultado["reiniciarNivel"]:
+            intentos = 15
+            tablero = get_tablero_para(1)
+        else:
+            fila = resultado["valor"][0]
+            columna = resultado["valor"][1]
 
-        print(tablero[fila][columna])
-        intentos -= 1
-        cambiar_luces(tablero, fila, columna)
+            print(tablero[fila][columna])
+            intentos -= 1
+            cambiar_luces(tablero, fila, columna)
 
     interfaz_usuario.mostrar_tablero(tablero)
     juegoGanado = nivelGanado(tablero)
@@ -107,11 +111,14 @@ def cambiar_luces(tablero, fila, columna):
             tablero[fila][columna+1] = "."
 
 def validar_coordenada():
-    propuesta = input("Elija una coordenada(letra, número): ")
+    propuesta = input("Elija una coordenada(letra, número) o ingrese * para reiniciar el nivel: ")
     propuesta = propuesta.upper()
     coordenadas = obtenerCoordenadas()
     if propuesta in coordenadas:
-        return {"coordenadaValida": True, "valor": coordenadas[propuesta]}
+        return {"coordenadaValida": True, "valor": coordenadas[propuesta],"reiniciarNivel": False}
+
+    if propuesta == "*":
+        return {"coordenadaValida": True, "reiniciarNivel": True}
 
     return {"coordenadaValida": False, "valor": ""}
 
