@@ -4,42 +4,76 @@ import copy
 
 nivelesPredeterminados = []
 
+def nivelGanado(tablero):
+
+    for fila in tablero:
+        for elemento in fila:
+            if elemento != ".":
+                return False
+    return True
+
+
+def hayTurnosDisponibles(intentos):
+
+    if intentos > 0:
+        return True
+    return False
+
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
 
     tablero = get_tablero_para(1)
+    intentos = 15
 
+    while not nivelGanado(tablero) and hayTurnosDisponibles(intentos):
 
-    #TODO encerrar todo esto en un while e ir descontado los turnos
+        print("")
+        print("Turnos disponibles: ", intentos)
+        interfaz_usuario.mostrar_tablero(tablero)
+        print("")
+
+        resultado = validar_coordenada()
+        while not resultado['coordenadaValida']:
+            resultado = validar_coordenada()
+
+        fila = resultado["valor"][0]
+        columna = resultado["valor"][1]
+
+        print(tablero[fila][columna])
+        intentos -= 1
+        cambiar_luces(tablero, fila, columna)
 
     interfaz_usuario.mostrar_tablero(tablero)
-    print("")
+    juegoGanado = nivelGanado(tablero)
 
-    resultado = validar_coordenada()
-    while not resultado['coordenadaValida']:
-        resultado = validar_coordenada()
+    if juegoGanado:
+        print("")
+        print("GANASTEEE")
+        print("")
+        print("Pasaste al siguiente nivel!!!")
 
-    fila = resultado["valor"][0]
-    columna = resultado["valor"][1]
+        """tablero = get_tablero_para(2)
+        print(tablero)"""
 
-    print(tablero[fila][columna])
+    #TODO Pasar al siguiente nivel y mostrarlo
 
-    cambiar_luces(tablero,fila,columna)
+    else:
+        print("")
+        print("PERDISTEEE")
+        print("")
 
-    #TODO FIN DEL CICLO WHILE
+    interfaz_usuario.mostrarMenu()
 
 
+    #TODO Poder reiniciar el juego en cualquier momento y volver al primer menú
 
-
-
-
-def posicion_jugada(fila,columna,tablero):
+def posicion_jugada(fila, columna, tablero):
     filasPermitidas = [0, 1, 2, 3, 4]
     columnasPermitidas = ["A", "B", "C", "D", "E"]
 
 
-    cambiar_luces(tablero,fila,columna)
+    cambiar_luces(tablero, fila, columna)
 
 
 def cambiar_luces(tablero, fila, columna):
@@ -71,9 +105,6 @@ def cambiar_luces(tablero, fila, columna):
             tablero[fila][columna+1] = "o"
         else:
             tablero[fila][columna+1] = "."
-
-    interfaz_usuario.mostrar_tablero(tablero)
-
 
 def validar_coordenada():
     propuesta = input("Elija una coordenada(letra, número): ")
@@ -107,7 +138,6 @@ def cargarNivelesPredeterminados():
 PRE:    Se espera que los niveles predeterminados ya hayan sido cargados
         Se espera que nroNivel sea un entero
         Se validara que nroNivel pasado sea 1,2,3,4 o 5
-
 POST:   Se devuelve una copia de la matriz del nivel pasado por parametro.
         Sino se cumple la precondicion, se devuelve una lista vacia
 """
