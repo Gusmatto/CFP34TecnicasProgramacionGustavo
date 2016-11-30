@@ -19,6 +19,8 @@ def hayTurnosDisponibles(intentos):
         return True
     return False
 
+puntaje_acumulado = {[nivelesPredeterminados1: ()], [nivelesPredeterminados2: ()], [nivelesPredeterminados3: ()], [nivelesPredeterminados4: ()], [nivelesPredeterminados5: ()]
+
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
@@ -55,22 +57,22 @@ def jugar():
         print("")
         print("GANASTEEE")
         print("")
-        print("Pasaste al siguiente nivel!!!")
+        print("Pasaste al siguiente nivel!!! Ganaste 500 puntos!!!")
 
-        """tablero = get_tablero_para(2)
-        print(tablero)"""
+        puntaje_acumulado = {nivelesPredeterminados1: 500}
 
-    #TODO Pasar al siguiente nivel y mostrarlo
+
+    #TODO Mostrar el nivel 2
+
+
 
     else:
         print("")
-        print("PERDISTEEE"),
+        print("PERDISTEEE")
         print("")
 
     interfaz_usuario.mostrarMenu()
 
-
-    #TODO Poder reiniciar el juego en cualquier momento y volver al primer menú
 
 def posicion_jugada(fila, columna, tablero):
     filasPermitidas = [0, 1, 2, 3, 4]
