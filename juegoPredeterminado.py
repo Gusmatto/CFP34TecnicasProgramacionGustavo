@@ -19,7 +19,7 @@ def hayTurnosDisponibles(intentos):
         return True
     return False
 
-puntaje_acumulado = {[nivelesPredeterminados1: ()], [nivelesPredeterminados2: ()], [nivelesPredeterminados3: ()], [nivelesPredeterminados4: ()], [nivelesPredeterminados5: ()]
+puntaje_acumulado = {1:0,2:0,3:0,4:0,5:0}
 
 def jugar():
     print("Usted ha elegido predeterminado")
@@ -58,14 +58,8 @@ def jugar():
         print("GANASTEEE")
         print("")
         print("Pasaste al siguiente nivel!!! Ganaste 500 puntos!!!")
-
-        puntaje_acumulado = {nivelesPredeterminados1: 500}
-
-
-    #TODO Mostrar el nivel 2
-
-
-
+        puntaje_acumulado[1] = 500
+        #TODO Mostrar el nivel 2
     else:
         print("")
         print("PERDISTEEE")
