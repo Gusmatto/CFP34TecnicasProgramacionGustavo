@@ -42,6 +42,7 @@ def jugar():
         if resultado["reiniciarNivel"]:
             intentos = 15
             tablero = get_tablero_para(1)
+            puntaje_acumulado[1] = -50
         else:
             fila = resultado["valor"][0]
             columna = resultado["valor"][1]
@@ -64,6 +65,13 @@ def jugar():
         print("")
         print("PERDISTEEE")
         print("")
+        print("-300 puntos acumulados")
+        print("Probá nuevamente en menos de 15 intentos")
+        print("")
+        print("")
+        puntaje_acumulado[1] = -300
+
+    jugar()
 
     interfaz_usuario.mostrarMenu()
 
@@ -107,7 +115,7 @@ def cambiar_luces(tablero, fila, columna):
             tablero[fila][columna+1] = "."
 
 def validar_coordenada():
-    propuesta = input("Elija una coordenada(letra, número) o ingrese * para reiniciar el nivel: ")
+    propuesta = input("Elija una coordenada(letra, número) o ingrese * para reiniciar el nivel(pierde 50 puntos cada vez): ")
     propuesta = propuesta.upper()
     coordenadas = obtenerCoordenadas()
     if propuesta in coordenadas:
