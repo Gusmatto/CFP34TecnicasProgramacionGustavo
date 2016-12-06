@@ -1,8 +1,15 @@
 
 import interfaz_usuario
 import copy
+import usuario
 
 nivelesPredeterminados = []
+niveles_permitidos = (1, 2, 3, 4, 5)
+
+
+def siguiente_nivel():
+    proximo_nivel = usuario.nivel_actual+1
+    return proximo_nivel in niveles_permitidos
 
 def nivelGanado(tablero):
 
@@ -12,6 +19,10 @@ def nivelGanado(tablero):
                 return False
     return True
 
+def terminar_juego():
+    print("Has terminado todos los niveles. Tu puntaje fue: ")
+    #TODO mostrar cuantos puntos hizo por nivel
+
 
 def hayTurnosDisponibles(intentos):
 
@@ -19,13 +30,11 @@ def hayTurnosDisponibles(intentos):
         return True
     return False
 
-puntaje_acumulado = {1:0,2:0,3:0,4:0,5:0}
-
 def jugar():
     print("Usted ha elegido predeterminado")
     cargarNivelesPredeterminados()
 
-    tablero = get_tablero_para(1)
+    tablero = get_tablero_para(usuario.nivel_actual)
     intentos = 15
 
     while not nivelGanado(tablero) and hayTurnosDisponibles(intentos):
@@ -42,7 +51,7 @@ def jugar():
         if resultado["reiniciarNivel"]:
             intentos = 15
             tablero = get_tablero_para(1)
-            puntaje_acumulado[1] = -50
+            usuario.puntaje_acumulado[1] = -50
         else:
             fila = resultado["valor"][0]
             columna = resultado["valor"][1]
@@ -59,8 +68,13 @@ def jugar():
         print("GANASTEEE")
         print("")
         print("Pasaste al siguiente nivel!!! Ganaste 500 puntos!!!")
-        puntaje_acumulado[1] = 500
-        #TODO Mostrar el nivel 2
+        usuario.puntaje_acumulado[usuario.nivel_actual] = 500
+
+        if siguiente_nivel():
+            usuario.nivel_actual += 1
+            jugar()
+        else:
+           terminar_juego()
     else:
         print("")
         print("PERDISTEEE")
@@ -69,7 +83,7 @@ def jugar():
         print("Probá nuevamente en menos de 15 intentos")
         print("")
         print("")
-        puntaje_acumulado[1] = -300
+        usuario.puntaje_acumulado[1] = -300
 
     jugar()
 
@@ -158,8 +172,6 @@ def get_tablero_para(nroNivel):
 
     if type(nroNivel) != int:
         return []
-
-    niveles_permitidos = (1, 2, 3, 4, 5)
 
     if nroNivel not in niveles_permitidos:
         return []
