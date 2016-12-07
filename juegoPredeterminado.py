@@ -21,8 +21,19 @@ def nivelGanado(tablero):
 
 def terminar_juego():
     print("Has terminado todos los niveles. Tu puntaje fue: ")
-    #TODO mostrar cuantos puntos hizo por nivel
 
+    puntajeTotal = 0
+
+    for indice,elemento in enumerate(usuario.puntaje_acumulado):
+        clave = int(indice + 1)
+        puntaje = usuario.puntaje_acumulado[clave]
+        puntajeTotal = puntajeTotal + puntaje
+        print("El puntaje en el nivel " + str(indice+1) + " fue de: " + str(puntaje))
+
+    print("El puntaje total obtenido es de: " + str(puntajeTotal))
+
+    usuario.nivel_actual = 1
+    #TODO reiniciar los puntajes tambien
 
 def hayTurnosDisponibles(intentos):
 
@@ -50,8 +61,8 @@ def jugar():
 
         if resultado["reiniciarNivel"]:
             intentos = 15
-            tablero = get_tablero_para(1)
-            usuario.puntaje_acumulado[1] = -50
+            tablero = get_tablero_para(usuario.nivel_actual)
+            usuario.puntaje_acumulado[usuario.nivel_actual] = -50
         else:
             fila = resultado["valor"][0]
             columna = resultado["valor"][1]
@@ -83,9 +94,8 @@ def jugar():
         print("Probá nuevamente en menos de 15 intentos")
         print("")
         print("")
-        usuario.puntaje_acumulado[1] = -300
-
-    jugar()
+        usuario.puntaje_acumulado[usuario.nivel_actual] = -300
+        jugar()
 
     interfaz_usuario.mostrarMenu()
 
@@ -151,7 +161,7 @@ def cargarNivelesPredeterminados():
     nivelesPredeterminados2 = [[".", "o", ".", "o", "."], ["o", "o", ".", "o", "o"], [".", "o", ".", "o", "."], ["o", ".", "o", ".", "o"], ["o", ".", "o", ".", "o"]]
     nivelesPredeterminados3 = [["o", ".", ".", ".", "o"], ["o", "o", ".", "o", "o"], [".", ".", "o", ".", "."], ["o", ".", "o", ".", "."], ["o", ".", "o", "o", "."]]
     nivelesPredeterminados4 = [["o", "o", ".", "o", "o"], [".", ".", ".", ".", "."], ["o", "o", ".", "o", "o"], [".", ".", ".", ".", "o"], ["o", "o", ".", ".", "."]]
-    nivelesPredeterminados5 = [[".", ".", ".", "o", "o"], [".", ".", ".", "o", "o"], [".", ".", ".", ".", "."], ["o", "o", ".", ".", "."], ["o", "o", ".", ".", "."]]
+    nivelesPredeterminados5 = [[".", ".", ".", "o", "o"], [".", ".", ".", ".", "o"], [".", ".", ".", ".", "."], ["o", ".", ".", ".", "."], ["o", "o", ".", ".", "."]]
 
     nivelesPredeterminados.append(nivelesPredeterminados1)
     nivelesPredeterminados.append(nivelesPredeterminados2)
