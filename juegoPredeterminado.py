@@ -161,7 +161,7 @@ def cargarNivelesPredeterminados():
     nivelesPredeterminados2 = [[".", "o", ".", "o", "."], ["o", "o", ".", "o", "o"], [".", "o", ".", "o", "."], ["o", ".", "o", ".", "o"], ["o", ".", "o", ".", "o"]]
     nivelesPredeterminados3 = [["o", ".", ".", ".", "o"], ["o", "o", ".", "o", "o"], [".", ".", "o", ".", "."], ["o", ".", "o", ".", "."], ["o", ".", "o", "o", "."]]
     nivelesPredeterminados4 = [["o", "o", ".", "o", "o"], [".", ".", ".", ".", "."], ["o", "o", ".", "o", "o"], [".", ".", ".", ".", "o"], ["o", "o", ".", ".", "."]]
-    nivelesPredeterminados5 = [[".", ".", ".", "o", "o"], [".", ".", ".", ".", "o"], [".", ".", ".", ".", "."], ["o", ".", ".", ".", "."], ["o", "o", ".", ".", "."]]
+    nivelesPredeterminados5 = [[".", ".", ".", "o", "o"], [".", ".", ".", "o", "o"], [".", ".", ".", ".", "."], ["o", "o", ".", ".", "."], ["o", "o", ".", ".", "."]]
 
     nivelesPredeterminados.append(nivelesPredeterminados1)
     nivelesPredeterminados.append(nivelesPredeterminados2)
