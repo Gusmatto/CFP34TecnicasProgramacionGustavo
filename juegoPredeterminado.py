@@ -27,13 +27,13 @@ def terminar_juego():
     for indice,elemento in enumerate(usuario.puntaje_acumulado):
         clave = int(indice + 1)
         puntaje = usuario.puntaje_acumulado[clave]
-        puntajeTotal = puntajeTotal + puntaje
+        puntajeTotal += puntaje
         print("El puntaje en el nivel " + str(indice+1) + " fue de: " + str(puntaje))
 
     print("El puntaje total obtenido es de: " + str(puntajeTotal))
 
     usuario.nivel_actual = 1
-    #TODO reiniciar los puntajes tambien
+    usuario.reiniciarPuntajesAcumulados()
 
 def hayTurnosDisponibles(intentos):
 
