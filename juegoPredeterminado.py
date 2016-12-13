@@ -63,6 +63,9 @@ def jugar():
             intentos = 15
             tablero = get_tablero_para(usuario.nivel_actual)
             usuario.puntaje_acumulado[usuario.nivel_actual] = -50
+            print("Este es el nivel y el puntaje acumulado: ", usuario.puntaje_acumulado)
+
+
         else:
             fila = resultado["valor"][0]
             columna = resultado["valor"][1]
