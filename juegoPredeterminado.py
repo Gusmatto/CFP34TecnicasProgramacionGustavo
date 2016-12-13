@@ -26,9 +26,8 @@ def terminar_juego():
 
     for indice,elemento in enumerate(usuario.puntaje_acumulado):
         clave = int(indice + 1)
-        puntaje = usuario.puntaje_acumulado[clave]
-        puntajeTotal += puntaje
-        print("El puntaje en el nivel " + str(indice+1) + " fue de: " + str(puntaje))
+        puntajeTotal += usuario.puntaje_acumulado[clave]
+        print("El puntaje en el nivel " + str(indice+1) + " fue de: " + str(puntajeTotal))
 
     print("El puntaje total obtenido es de: " + str(puntajeTotal))
 
@@ -65,7 +64,6 @@ def jugar():
             usuario.puntaje_acumulado[usuario.nivel_actual] = -50
             print("Este es el nivel y el puntaje acumulado: ", usuario.puntaje_acumulado)
 
-
         else:
             fila = resultado["valor"][0]
             columna = resultado["valor"][1]
@@ -82,7 +80,7 @@ def jugar():
         print("GANASTEEE")
         print("")
         print("Pasaste al siguiente nivel!!! Ganaste 500 puntos!!!")
-        usuario.puntaje_acumulado[usuario.nivel_actual] = 500
+        usuario.puntaje_acumulado[usuario.nivel_actual] += 500
 
         if siguiente_nivel():
             usuario.nivel_actual += 1
@@ -97,7 +95,7 @@ def jugar():
         print("Probá nuevamente en menos de 15 intentos")
         print("")
         print("")
-        usuario.puntaje_acumulado[usuario.nivel_actual] = -300
+        usuario.puntaje_acumulado[usuario.nivel_actual] += -300
         jugar()
 
     interfaz_usuario.mostrarMenu()
