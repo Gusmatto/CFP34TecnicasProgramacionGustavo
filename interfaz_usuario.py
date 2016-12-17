@@ -1,4 +1,5 @@
 import juegoPredeterminado
+import juegoAleatorio
 
 def mostrarMenu():
     print("")
@@ -15,7 +16,8 @@ def mostrarMenu():
         if modoDeJuego == "P":
             juegoPredeterminado.jugar()
         elif modoDeJuego == "A":
-            print("Eligio A")
+
+            juegoAleatorio.jugarAleatorio()
         elif modoDeJuego == "S":
             print("¡Ha salido del juego!")
             exit()
